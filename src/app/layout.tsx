@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import "@/scss/global.scss";
 import "semantic-ui-css/semantic.min.css";
 import { TurnOffDefaultPropsWarning } from "../components/Error/Error";
