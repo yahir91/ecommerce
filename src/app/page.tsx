@@ -8,6 +8,7 @@ export default function Home() {
     <main>
       <Button primary>Primary</Button>
       <Button secondary>Secondary</Button>
+      <h1>GAME SHOP</h1>
     </main>
   );
 }
