@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/scss/global.scss";
 import "semantic-ui-css/semantic.min.css";
 
 export const metadata: Metadata = {

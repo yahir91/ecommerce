@@ -1,6 +1,5 @@
 "use client";
 
-import "@/scss/global.scss";
 import { Button } from "semantic-ui-react";
 import { TurnOffDefaultPropsWarning } from "../components/Error/Error";
 

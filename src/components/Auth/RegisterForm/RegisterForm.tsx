@@ -65,7 +65,7 @@ const RegisterForm = () => {
       </Form.Group>
 
       <Form.Button type="submit" fluid loading={formik.isSubmitting}>
-        Registrarse
+        Register
       </Form.Button>
     </Form>
   );
