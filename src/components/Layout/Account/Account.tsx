@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Button, Icon, Label } from "semantic-ui-react";
 import styles from "./Account.module.scss";
 import { useAuth } from "../../../hooks/useAuth";

@@ -5,7 +5,7 @@ import { BasicLayout } from "../../layouts/BasicLayout/BasicLayout";
 export default function Home() {
   return (
     <main>
-      <BasicLayout>
+      <BasicLayout isContainer>
         <h1>GAME SHOP</h1>
       </BasicLayout>
     </main>
