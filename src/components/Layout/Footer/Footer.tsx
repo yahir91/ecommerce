@@ -5,7 +5,7 @@ import styles from "./Footer.module.scss";
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <Container>
+      <div className={styles.container}>
         <div className={styles.columns}>
           <div>
             <Link href="/">
@@ -33,7 +33,7 @@ const Footer = () => {
         <div className={styles.copyright}>
           <span>Copyright © 2023 Gaming - All rights reserved</span>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

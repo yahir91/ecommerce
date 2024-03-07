@@ -4,6 +4,8 @@ import { DateTime } from "luxon";
 import Link from "next/link";
 import styles from "./BannerLastGamePublished.module.scss";
 import { Game } from "../../../api/game";
+import { fn } from "../../../utils/functions";
+import { Label } from "../../Shared/Label";
 
 const gameCtrl = new Game();
 
@@ -24,11 +26,11 @@ const BannerLastGamePublished = () => {
   if (!game) return null;
 
   const wallpaper = game.attributes.wallpaper;
-//   const releaseDate = new Date(game.attributes.releaseDate).toISOString();
-  // const price = fn.calcDiscountedPrice(
-  //   game.attributes.price,
-  //   game.attributes.discount
-  // );
+  //   const releaseDate = new Date(game.attributes.releaseDate).toISOString();
+  const price = fn.calcDiscountPrice(
+    game.attributes.price,
+    game.attributes.discount
+  );
 
   return (
     <div className={styles.container}>
@@ -39,18 +41,18 @@ const BannerLastGamePublished = () => {
       />
 
       <Link className={styles.infoContainer} href={game.attributes.slug}>
-        <Container>
-          <span className={styles.date}>
-            {/* {DateTime.fromISO(releaseDate).minus({ days: 1 }).toRelative()} */}
-          </span>
+        <span className={styles.date}>
+          {/* {DateTime.fromISO(releaseDate).minus({ days: 1 }).toRelative()} */}
+        </span>
 
-          <h2>{game.attributes.title}</h2>
+        <h2>{game.attributes.title}</h2>
 
-          <p className={styles.price}>
-            {/* <Label.Discount>-{game.attributes.discount}%</Label.Discount>
-            <span className={styles.finalPrice}>{price}€</span> */}
-          </p>
-        </Container>
+        <p className={styles.price}>
+          {game.attributes.discount && (
+            <Label.Discount>-{game.attributes.discount}%</Label.Discount>
+          )}
+          <span className={styles.finalPrice}>{price}€</span>
+        </p>
       </Link>
     </div>
   );
