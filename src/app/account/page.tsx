@@ -7,8 +7,8 @@ import styles from "./account.module.scss";
 import { BasicLayout } from "../../layouts/BasicLayout/BasicLayout";
 import { useAuth } from "../../hooks/useAuth";
 import Info from "../../components/Account/Info/Info";
-import { Settings } from "../../components/Account/Settings/ChangeNameForm";
 import { Separator } from "../../components/Shared/Separator/Separator";
+import { Settings } from "../../components/Account/Settings";
 
 const Account = () => {
   const { user, logout } = useAuth();
@@ -57,8 +57,8 @@ const Account = () => {
         <Tab.Pane attached={false} key={99}>
           <Settings.ChangeNameForm />
           <div className={styles.containerForms}>
-            {/* <Settings.ChangeEmailForm />
-              <Settings.ChangePasswordForm /> */}
+            <Settings.ChangeEmailForm />
+              <Settings.ChangePasswordForm />
           </div>
           <Separator height={80} />
         </Tab.Pane>
