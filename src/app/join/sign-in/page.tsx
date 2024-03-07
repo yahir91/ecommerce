@@ -18,7 +18,7 @@ const SignInPage = () => {
           <LoginForm />
 
           <div className={styles.actions}>
-            <Link href="/join/sign-up">Don't have a account?</Link>
+            <Link href="/join/sign-up">Dont have a account?</Link>
           </div>
         </div>
       </JoinLayout>

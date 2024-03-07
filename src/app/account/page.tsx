@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { Tab } from "semantic-ui-react";
@@ -7,6 +7,7 @@ import styles from "./account.module.scss";
 import { BasicLayout } from "../../layouts/BasicLayout/BasicLayout";
 import { useAuth } from "../../hooks/useAuth";
 import Info from "../../components/Account/Info/Info";
+import { Settings } from "../../components/Account/Settings/ChangeNameForm";
 
 const Account = () => {
   const { user, logout } = useAuth();
@@ -14,7 +15,7 @@ const Account = () => {
   const [reload, setReload] = useState(false);
 
   if (!user) {
-    router.push("/");
+    router.push("/home");
     return null;
   }
 
@@ -53,12 +54,12 @@ const Account = () => {
       menuItem: { key: 20, icon: "settings", content: "Ajustes" },
       render: () => (
         <Tab.Pane attached={false} key={99}>
-          {/* <Settings.ChangeNameForm />
-            <div className={styles.containerForms}>
-              <Settings.ChangeEmailForm />
-              <Settings.ChangePasswordForm />
-            </div>
-            <Separator height={80} /> */}
+          <Settings.ChangeNameForm />
+          <div className={styles.containerForms}>
+            {/* <Settings.ChangeEmailForm />
+              <Settings.ChangePasswordForm /> */}
+          </div>
+          {/* <Separator height={80} /> */}
         </Tab.Pane>
       ),
     },

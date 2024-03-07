@@ -20,7 +20,7 @@ const LoginForm = () => {
         const response = await authCtrl.login(formValue);
         login(response.jwt);
 
-        router.push("/");
+        router.push("/home");
       } catch (error) {
         console.error(error);
       }
