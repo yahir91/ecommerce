@@ -4,6 +4,7 @@ import { Address as AddressCtrl } from "../../../../../api/address";
 import styles from "./Address.module.scss";
 import { BasicModal } from "../../../../Shared/BasicModal/BasicModal";
 import AddressForm from "../../AddressForm/AddressForm";
+import { Confirm } from "../../../../Shared/Confirm/COnfirm";
 
 const addressCtrl = new AddressCtrl();
 
@@ -45,12 +46,12 @@ const Address = (props: any) => {
         </div>
       </div>
 
-      {/* <Confirm
+      <Confirm
         open={showConfirm}
         onCancel={openCloseConfirm}
         onConfirm={onDelete}
         content="¿Estas seguro de que quieres eliminar la dirección?"
-      /> */}
+      />
 
       <BasicModal
         show={showEdit}
