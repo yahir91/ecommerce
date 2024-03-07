@@ -8,6 +8,7 @@ import { BasicLayout } from "../../layouts/BasicLayout/BasicLayout";
 import { useAuth } from "../../hooks/useAuth";
 import Info from "../../components/Account/Info/Info";
 import { Settings } from "../../components/Account/Settings/ChangeNameForm";
+import { Separator } from "../../components/Shared/Separator/Separator";
 
 const Account = () => {
   const { user, logout } = useAuth();
@@ -26,8 +27,8 @@ const Account = () => {
       menuItem: "Mis pedidos",
       render: () => (
         <Tab.Pane attached={false}>
-          {/* <Orders />
-            <Separator height={80} /> */}
+          {/* <Orders /> */}
+          <Separator height={80} />
         </Tab.Pane>
       ),
     },
@@ -35,8 +36,8 @@ const Account = () => {
       menuItem: "Lista de deseos",
       render: () => (
         <Tab.Pane attached={false}>
-          {/* <Wishlist />
-            <Separator height={80} /> */}
+          {/* <Wishlist /> */}
+          <Separator height={80} />
         </Tab.Pane>
       ),
     },
@@ -45,8 +46,8 @@ const Account = () => {
       render: () => (
         <Tab.Pane attached={false}>
           {/* <Address.AddAddress onReload={onReload} />
-            <Address.ListAddresses reload={reload} onReload={onReload} />
-            <Separator height={80} /> */}
+            <Address.ListAddresses reload={reload} onReload={onReload} /> */}
+          <Separator height={80} />
         </Tab.Pane>
       ),
     },
@@ -59,7 +60,7 @@ const Account = () => {
             {/* <Settings.ChangeEmailForm />
               <Settings.ChangePasswordForm /> */}
           </div>
-          {/* <Separator height={80} /> */}
+          <Separator height={80} />
         </Tab.Pane>
       ),
     },
