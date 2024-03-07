@@ -4,7 +4,7 @@ import { Address as AddressCtrl } from "../../../../../api/address";
 import styles from "./Address.module.scss";
 import { BasicModal } from "../../../../Shared/BasicModal/BasicModal";
 import AddressForm from "../../AddressForm/AddressForm";
-import { Confirm } from "../../../../Shared/Confirm/COnfirm";
+import { Confirm } from "../../../../Shared/Confirm/Confirm";
 
 const addressCtrl = new AddressCtrl();
 
