@@ -25,7 +25,7 @@ const LatestGames = (props: any) => {
 
   return (
     <div>
-      <h2>{title}</h2>
+      <h2 style={{ paddingLeft: 30 }}>{title}</h2>
       <GridGames games={games} />
     </div>
   );
