@@ -9,6 +9,7 @@ import { useAuth } from "../../hooks/useAuth";
 import Info from "../../components/Account/Info/Info";
 import { Separator } from "../../components/Shared/Separator/Separator";
 import { Settings } from "../../components/Account/Settings";
+import { Address } from "../../components/Account/Address";
 
 const Account = () => {
   const { user, logout } = useAuth();
@@ -45,8 +46,8 @@ const Account = () => {
       menuItem: "Direcciones",
       render: () => (
         <Tab.Pane attached={false}>
-          {/* <Address.AddAddress onReload={onReload} />
-            <Address.ListAddresses reload={reload} onReload={onReload} /> */}
+          <Address.AddAddress onReload={onReload} />
+          {/* <Address.ListAddresses reload={reload} onReload={onReload} /> */}
           <Separator height={80} />
         </Tab.Pane>
       ),
@@ -58,7 +59,7 @@ const Account = () => {
           <Settings.ChangeNameForm />
           <div className={styles.containerForms}>
             <Settings.ChangeEmailForm />
-              <Settings.ChangePasswordForm />
+            <Settings.ChangePasswordForm />
           </div>
           <Separator height={80} />
         </Tab.Pane>

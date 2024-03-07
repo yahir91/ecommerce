@@ -1,5 +1,5 @@
-export function Separator(props) {
-    const { height } = props;
-  
-    return <div style={{ height }} />;
-  }
+export function Separator(props: any) {
+  const { height } = props;
+
+  return <div style={{ height }} />;
+}
