@@ -61,10 +61,10 @@ export class Game {
     }
   }
 
-  async searchGames(text: string, page: number) {
+  async searchGames(text: string, page: string) {
     try {
       const filters = `filters[title][$contains]=${text}`;
-      const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
+      const pagination = `pagination[page]=${page}&pagination[pageSize]=3`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;
 

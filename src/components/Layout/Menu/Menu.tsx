@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Image, Icon, Input } from "semantic-ui-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { map } from "lodash";
 import classNames from "classnames";
 import styles from "./Menu.module.scss";
@@ -13,6 +13,8 @@ const Menu = ({ isOpenSearch }: { isOpenSearch: boolean }) => {
   const [platforms, setPlatforms] = useState(null);
   const [showSearch, setShowSearch] = useState(isOpenSearch);
   const [searchText, setSearchText] = useState<string | string[]>("");
+  const searchParams = useSearchParams();
+  const search = searchParams.get("s") || "";
   const router = useRouter();
 
   const openCloseSearch = () => setShowSearch((prevState) => !prevState);
@@ -28,9 +30,9 @@ const Menu = ({ isOpenSearch }: { isOpenSearch: boolean }) => {
     })();
   }, []);
 
-//   useEffect(() => {
-//     setSearchText(router.query.s || "");
-//   }, [router.query.s]);
+  useEffect(() => {
+    setSearchText(search);
+  }, [search]);
 
   const onSearch = (text: string) => {
     setSearchText(text);
