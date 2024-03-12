@@ -28,7 +28,7 @@ const GamePage = ({ params }: { params: { game: string } }) => {
         {data.game && (
           <>
             <Game.HeaderWallpaper image={wallpaper?.data.attributes.url} />
-            {/* <Game.Panel gameId={game.id} game={game.attributes} /> */}
+            <Game.Panel gameId={data.game.id} game={data.game.attributes} />
 
             <Separator height={50} />
 
