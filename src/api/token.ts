@@ -18,7 +18,6 @@ export class Token {
     const tokenDecode = jwtDecode<JwtPayload>(token);
     const expireDate = tokenDecode.exp! * 1000;
     const currentDate = new Date().getTime();
-    console.log(tokenDecode);
     if (currentDate > expireDate) {
       return true;
     }

@@ -4,9 +4,6 @@ export class Auth {
   async register(data: any) {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AUTH.REGISTER}`;
-      console.log(url)
-      console.log(ENV.API_URL)
-
       const params = {
         method: "POST",
         headers: {
