@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "semantic-ui-react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 import { forEach } from "lodash";
 import styles from "./Resume.module.scss";
 import { fn } from "../../../../utils/functions";
@@ -9,6 +9,7 @@ import { fn } from "../../../../utils/functions";
 const Resume = (props: any) => {
   const { games } = props;
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [totals, setTotals] = useState<any>(null);
 
   useEffect(() => {
@@ -35,8 +36,18 @@ const Resume = (props: any) => {
     setTotals(totals);
   }, [games]);
 
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams]
+  );
+
   const goToStepTwo = () => {
-    router.replace({ query: { ...router.query, step: 2 } });
+    router.replace(`?${createQueryString("step", "2")}`);
   };
 
   if (!totals) return null;

@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Game } from "@/api/game";
 import { useCart } from "@/hooks/useCart";
 import CartLayout from "../../layouts/CartLayout/CartLayout";
+import { Cart } from "../../components/Cart";
 // import { Cart } from "@/components/Cart";
 
 const gameCtrl = new Game();
@@ -35,8 +36,8 @@ const CartPage = () => {
       {/* <Seo title="Carrito" /> */}
 
       <CartLayout>
-        {/* {currentStep === 1 && <Cart.StepOne games={games} />}
-        {currentStep === 2 && <Cart.StepTwo games={games} />}
+        {currentStep === 1 && <Cart.StepOne games={games} />}
+        {/* {currentStep === 2 && <Cart.StepTwo games={games} />}
         {currentStep === 3 && <Cart.StepThree />} */}
       </CartLayout>
     </>
