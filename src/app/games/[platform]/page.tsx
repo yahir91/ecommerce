@@ -11,7 +11,7 @@ import Pagination from "../../../components/Shared/Pagination/Pagination";
 import { useSearchParams } from "next/navigation";
 
 const PlatformPage = ({ params }: { params: { platform: string } }) => {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<any>([]);
   const [hasProducts, sethasProducts] = useState(false);
   const searchParams = useSearchParams();
   const page = searchParams.get("page") ?? "1";
@@ -21,12 +21,12 @@ const PlatformPage = ({ params }: { params: { platform: string } }) => {
       const response = await fetch(
         `../../api/games/${params.platform}?page=${page}`
       );
-      const { data } = await response.json();
-      setData(data);
+      const { parsedData } = await response.json();
+      setData(parsedData);
       const hasProducts = size(data.games) > 0;
       sethasProducts(hasProducts);
     })();
-  }, [params.platform, page]);
+  }, [params.platform, page, data.games]);
 
   return (
     <>

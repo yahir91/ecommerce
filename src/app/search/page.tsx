@@ -17,9 +17,9 @@ const SearchGame = () => {
   const page = searchParams.get("page") ?? "1";
   const search = searchParams.get("s") ?? "";
 
-  //   useEffect(() => {
-  //     document.getElementById("search-games").focus();
-  //   }, []);
+  useEffect(() => {
+    document.getElementById("search-games")?.focus();
+  }, []);
 
   useEffect(() => {
     const asyncFunction = (async () => {
@@ -35,7 +35,7 @@ const SearchGame = () => {
         <Container>
           <Separator height={50} />
 
-          <h2>Buscando: {data?.searchText}</h2>
+          <h2 style={{ paddingLeft: 40 }}>Buscando: {data?.searchText}</h2>
           {hasResult ? (
             <>
               <GridGames games={data.games} />

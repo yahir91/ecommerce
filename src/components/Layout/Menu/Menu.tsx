@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Image, Icon, Input } from "semantic-ui-react";
 import Link from "next/link";
