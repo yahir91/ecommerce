@@ -10,6 +10,7 @@ import Info from "../../components/Account/Info/Info";
 import { Separator } from "../../components/Shared/Separator/Separator";
 import { Settings } from "../../components/Account/Settings";
 import { Address } from "../../components/Account/Address";
+import Wishlist from "../../components/Account/Wishlist/Wishlist";
 
 const Account = () => {
   const { user, logout } = useAuth();
@@ -37,7 +38,7 @@ const Account = () => {
       menuItem: "Lista de deseos",
       render: () => (
         <Tab.Pane attached={false}>
-          {/* <Wishlist /> */}
+          <Wishlist />
           <Separator height={80} />
         </Tab.Pane>
       ),
