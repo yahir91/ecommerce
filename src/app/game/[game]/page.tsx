@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Separator } from "../../../components/Shared/Separator/Separator";
 import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
+import { Game } from "../../../components/Game";
 
 const GamePage = ({ params }: { params: { game: string } }) => {
   const [data, setData] = useState<any>({});
@@ -14,6 +15,8 @@ const GamePage = ({ params }: { params: { game: string } }) => {
       setData(parsedResponse);
     })();
   }, [params.game]);
+
+  const wallpaper = data?.game?.attributes.wallpaper;
   return (
     <>
       {/* <Seo
@@ -22,21 +25,25 @@ const GamePage = ({ params }: { params: { game: string } }) => {
         /> */}
 
       <BasicLayout>
-        {/* <Game.HeaderWallpaper image={wallpaper.data.attributes.url} />
-          <Game.Panel gameId={game.id} game={game.attributes} />
-  
-          <Separator height={50} />
-  
-          <Game.Info game={game.attributes} />
-  
-          <Separator height={30} />
-  
-          <Game.Media
-            video={game.attributes.video}
-            screenshots={game.attributes.screenshots.data}
-          /> */}
+        {data.game && (
+          <>
+            <Game.HeaderWallpaper image={wallpaper?.data.attributes.url} />
+            {/* <Game.Panel gameId={game.id} game={game.attributes} /> */}
 
-        <Separator height={50} />
+            <Separator height={50} />
+
+            <Game.Info game={data?.game?.attributes} />
+
+            <Separator height={30} />
+
+            <Game.Media
+              video={data?.game?.attributes.video}
+              screenshots={data?.game?.attributes.screenshots.data}
+            />
+
+            <Separator height={50} />
+          </>
+        )}
       </BasicLayout>
     </>
   );

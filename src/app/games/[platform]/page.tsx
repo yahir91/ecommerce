@@ -12,7 +12,6 @@ import { useSearchParams } from "next/navigation";
 
 const PlatformPage = ({ params }: { params: { platform: string } }) => {
   const [data, setData] = useState<any>([]);
-  const [hasProducts, sethasProducts] = useState(false);
   const searchParams = useSearchParams();
   const page = searchParams.get("page") ?? "1";
 
@@ -21,12 +20,12 @@ const PlatformPage = ({ params }: { params: { platform: string } }) => {
       const response = await fetch(
         `../../api/games/${params.platform}?page=${page}`
       );
-      const { parsedData } = await response.json();
+      const { data: parsedData } = await response.json();
       setData(parsedData);
-      const hasProducts = size(data.games) > 0;
-      sethasProducts(hasProducts);
     })();
-  }, [params.platform, page, data.games]);
+  }, [params.platform, page]);
+
+  const hasProducts = size(data.games) > 0;
 
   return (
     <>
@@ -36,7 +35,9 @@ const PlatformPage = ({ params }: { params: { platform: string } }) => {
         <Container>
           <Separator height={50} />
 
-          <h2 style={{ paddingLeft: 30 }}>{data?.platform.attributes.title}</h2>
+          <h2 style={{ paddingLeft: 30 }}>
+            {data?.platform?.attributes.title}
+          </h2>
 
           {hasProducts ? (
             <>
@@ -49,7 +50,9 @@ const PlatformPage = ({ params }: { params: { platform: string } }) => {
             </>
           ) : (
             <NoResult
-              text={`La categoria ${data?.platform.attributes.title} aun no tiene productos`}
+              text={`La categoria ${
+                data?.platform?.attributes.title ?? params.platform
+              } aun no tiene productos`}
             />
           )}
 

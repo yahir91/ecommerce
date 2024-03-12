@@ -13,7 +13,7 @@ const GridGames = (props: any) => {
       {map(games, (game) => (
         <Link
           key={game.id}
-          href={`/${game.attributes.slug}`}
+          href={`/game/${game.attributes.slug}`}
           className={styles.game}
         >
           <div>
