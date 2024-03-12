@@ -8,6 +8,8 @@ import { Image } from "semantic-ui-react";
 const GridGames = (props: any) => {
   const { games } = props;
 
+  console.log(games);
+
   return (
     <div className={styles.gridGames}>
       {map(games, (game) => (
