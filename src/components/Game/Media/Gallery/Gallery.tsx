@@ -9,8 +9,6 @@ const Gallery = (props: any) => {
   const { screenshots } = props;
   const [show, setShow] = useState(false);
 
-  console.log(screenshots);
-
   const onOpenClose = () => setShow((prevState) => !prevState);
 
   const screenshotsClone = [...screenshots];

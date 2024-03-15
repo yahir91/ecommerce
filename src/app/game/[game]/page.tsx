@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Separator } from "../../../components/Shared/Separator/Separator";
 import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
 import { Game } from "../../../components/Game";
+import Seo from "../../../components/Shared/Seo/Seo";
 
 const GamePage = ({ params }: { params: { game: string } }) => {
   const [data, setData] = useState<any>({});
@@ -19,11 +20,6 @@ const GamePage = ({ params }: { params: { game: string } }) => {
   const wallpaper = data?.game?.attributes.wallpaper;
   return (
     <>
-      {/* <Seo
-          title={game.attributes.title}
-          description={game.attributes.summary}
-        /> */}
-
       <BasicLayout>
         {data.game && (
           <>

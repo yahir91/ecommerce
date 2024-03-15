@@ -12,6 +12,7 @@ import { Settings } from "../../components/Account/Settings";
 import { Address } from "../../components/Account/Address";
 import Wishlist from "../../components/Account/Wishlist/Wishlist";
 import Orders from "../../components/Account/Orders/Orders";
+import Seo from "../../components/Shared/Seo/Seo";
 
 const Account = () => {
   const { user, logout } = useAuth();
@@ -78,19 +79,15 @@ const Account = () => {
   ];
 
   return (
-    <>
-      {/* <Seo title="Mi cuenta" /> */}
+    <BasicLayout isContainer relative>
+      <Info />
 
-      <BasicLayout isContainer relative>
-        <Info />
-
-        <Tab
-          menu={{ secondary: true, pointing: true }}
-          panes={panes}
-          className={styles.tabs}
-        />
-      </BasicLayout>
-    </>
+      <Tab
+        menu={{ secondary: true, pointing: true }}
+        panes={panes}
+        className={styles.tabs}
+      />
+    </BasicLayout>
   );
 };
 

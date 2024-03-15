@@ -1,14 +1,12 @@
 import { map } from "lodash";
 import Link from "next/link";
+import { Image } from "semantic-ui-react";
 import { fn } from "../../../utils/functions";
 import { Label } from "../Label";
 import styles from "./GridGame.module.scss";
-import { Image } from "semantic-ui-react";
 
 const GridGames = (props: any) => {
   const { games } = props;
-
-  console.log(games);
 
   return (
     <div className={styles.gridGames}>

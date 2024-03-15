@@ -1,17 +1,12 @@
-'use client'
+"use client";
 
 import Link from "next/link";
-// import { RegisterForm } from "@/components/Auth";
-// import { Seo } from "@/components/Shared";
-import styles from "./sign-up.module.scss";
-import JoinLayout from "../../../layouts/JoinLayout/JoinLayout";
 import RegisterForm from "../../../components/Auth/RegisterForm/RegisterForm";
+import JoinLayout from "../../../layouts/JoinLayout/JoinLayout";
+import styles from "./sign-up.module.scss";
 
 export default function SignUpPage() {
   return (
-    <>
-      {/* <Seo title="Registrarse" /> */}
-
       <JoinLayout>
         <div className={styles.signIn}>
           <h3>Create account</h3>
@@ -22,6 +17,5 @@ export default function SignUpPage() {
           </div>
         </div>
       </JoinLayout>
-    </>
   );
 }

@@ -25,8 +25,6 @@ const Wishlist = () => {
     })();
   }, [reload, user.id]);
 
-  console.log(wishlist);
-
   return size(wishlist) === 0 ? (
     <NoResult text="No tienes ningun juego en la lista de deseos" />
   ) : (

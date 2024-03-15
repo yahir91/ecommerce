@@ -6,8 +6,6 @@ import Gallery from "./Gallery/Gallery";
 const Media = (props: any) => {
   const { video, screenshots } = props;
 
-  console.log(props);
-
   return (
     <Container>
       <h2>Visuales</h2>

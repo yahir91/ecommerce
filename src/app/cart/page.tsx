@@ -6,7 +6,6 @@ import { Game } from "@/api/game";
 import { useCart } from "@/hooks/useCart";
 import CartLayout from "../../layouts/CartLayout/CartLayout";
 import { Cart } from "../../components/Cart";
-// import { Cart } from "@/components/Cart";
 
 const gameCtrl = new Game();
 const CartPage = () => {
@@ -33,8 +32,6 @@ const CartPage = () => {
 
   return (
     <>
-      {/* <Seo title="Carrito" /> */}
-
       <CartLayout>
         {currentStep === 1 && <Cart.StepOne games={games} />}
         {currentStep === 2 && <Cart.StepTwo games={games} />}
