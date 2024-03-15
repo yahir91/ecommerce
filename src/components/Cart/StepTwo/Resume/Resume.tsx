@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "semantic-ui-react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 import { forEach, map } from "lodash";
 import { Cart } from "@/api/cart";
 import { useAuth } from "@/hooks/useAuth";
@@ -20,6 +20,7 @@ const Resume = (props: any) => {
   const { user } = useAuth();
   const { deleteAllItems } = useCart();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     let totalTemp = 0;
@@ -35,6 +36,20 @@ const Resume = (props: any) => {
     setTotal(totalTemp.toFixed(2));
   }, [games]);
 
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams]
+  );
+
+  const goToStepEnd = () => {
+    router.replace(`?${createQueryString("step", "3")}`);
+  };
+
   const onPay = async () => {
     setLoading(true);
 
@@ -43,9 +58,8 @@ const Resume = (props: any) => {
       return;
     }
 
-    const cardElement = elements.getElement(CardElement);
+    const cardElement: any = elements.getElement(CardElement);
     const result = await stripe.createToken(cardElement);
-
     if (result.error) {
       console.error(result.error.message);
     } else {
@@ -67,10 +81,6 @@ const Resume = (props: any) => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-  };
-
-  const goToStepEnd = () => {
-    router.replace({ query: { ...router.query, step: 3 } });
   };
 
   if (!total) return null;
