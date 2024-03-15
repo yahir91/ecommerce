@@ -11,6 +11,7 @@ import { Separator } from "../../components/Shared/Separator/Separator";
 import { Settings } from "../../components/Account/Settings";
 import { Address } from "../../components/Account/Address";
 import Wishlist from "../../components/Account/Wishlist/Wishlist";
+import Orders from "../../components/Account/Orders/Orders";
 
 const Account = () => {
   const { user, logout } = useAuth();
@@ -29,7 +30,7 @@ const Account = () => {
       menuItem: "Mis pedidos",
       render: () => (
         <Tab.Pane attached={false}>
-          {/* <Orders /> */}
+          <Orders />
           <Separator height={80} />
         </Tab.Pane>
       ),
