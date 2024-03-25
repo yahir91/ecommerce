@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, createContext } from "react";
-import { Token } from "../api/token";
-import { User } from "../api/user";
+import { Token } from "../app/api/token";
+import { User } from "../app/api/user";
 
 const tokenCtrl = new Token();
 const userCtrl = new User();
