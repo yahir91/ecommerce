@@ -1,6 +1,6 @@
 import { forEach } from "lodash";
-import { ENV } from "../utils/constants";
-import { authFetch } from "../utils/authFetch";
+import { ENV } from "../../utils/constants";
+import { authFetch } from "../../utils/authFetch";
 
 export class Cart {
   add(gameId: any) {

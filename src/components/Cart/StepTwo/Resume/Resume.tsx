@@ -3,7 +3,7 @@ import { Button } from "semantic-ui-react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useRouter, useSearchParams } from "next/navigation";
 import { forEach, map } from "lodash";
-import { Cart } from "@/api/cart";
+import { Cart } from "@/app/api/cart";
 import { useAuth } from "@/hooks/useAuth";
 import { fn } from "@/utils/functions";
 import styles from "./Resume.module.scss";

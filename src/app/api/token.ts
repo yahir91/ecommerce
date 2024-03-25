@@ -1,5 +1,5 @@
 import { JwtPayload, jwtDecode } from "jwt-decode";
-import { ENV } from "../utils/constants";
+import { ENV } from "../../utils/constants";
 
 export class Token {
   setToken(token: string) {

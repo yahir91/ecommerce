@@ -3,7 +3,7 @@ import { Container, Image } from "semantic-ui-react";
 import { DateTime } from "luxon";
 import Link from "next/link";
 import styles from "./BannerLastGamePublished.module.scss";
-import { Game } from "../../../api/game";
+import { Game } from "../../../app/api/game";
 import { fn } from "../../../utils/functions";
 import { Label } from "../../Shared/Label";
 

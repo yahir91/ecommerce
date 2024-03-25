@@ -1,4 +1,4 @@
-import { Game } from "../../api/game";
+import { Game } from "../api/game";
 import SearchGame from "./Search";
 const gameCtrl = new Game();
 

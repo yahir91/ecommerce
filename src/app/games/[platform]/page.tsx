@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { Game } from "../../../api/game";
-import { Platform } from "../../../api/platform";
+import { Game } from "../../api/game";
+import { Platform } from "../../api/platform";
 import PlatformPage from "./PlaftormPage";
 
 type Props = {

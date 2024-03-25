@@ -1,5 +1,5 @@
 import { ENV } from "@/utils/constants";
-import { authFetch } from "../utils/authFetch";
+import { authFetch } from "../../utils/authFetch";
 
 export class Order {
   async getAll(userId: any) {

@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { Form } from "semantic-ui-react";
-import { User } from "../../../../api/user";
+import { User } from "../../../../app/api/user";
 import { useAuth } from "../../../../hooks/useAuth";
 import { initialValues, validationSchema } from "./ChangeEmailForm.form";
 import styles from "./ChangeEmailForm.module.scss";

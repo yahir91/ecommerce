@@ -1,4 +1,4 @@
-import { Token } from "../api/token";
+import { Token } from "../app/api/token";
 
 export async function authFetch(url: string, params: any) {
   const tokenCtrl = new Token();

@@ -3,7 +3,7 @@
 import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./RegisterForm.form";
-import { Auth } from "../../../api/auth";
+import { Auth } from "../../../app/api/auth";
 import { useRouter } from "next/navigation";
 
 const authCtrl = new Auth();

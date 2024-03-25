@@ -1,5 +1,5 @@
-import { authFetch } from "../utils/authFetch";
-import { ENV } from "../utils/constants";
+import { authFetch } from "../../utils/authFetch";
+import { ENV } from "../../utils/constants";
 
 export class Address {
   async create(data: any, userId: number) {

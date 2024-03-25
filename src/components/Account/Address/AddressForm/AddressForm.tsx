@@ -2,7 +2,7 @@ import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./AddressForm.form";
 import { useAuth } from "../../../../hooks/useAuth";
-import { Address } from "../../../../api/address";
+import { Address } from "../../../../app/api/address";
 
 const addressCtrl = new Address();
 const AddressForm = (props: any) => {

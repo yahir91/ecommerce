@@ -1,5 +1,5 @@
-import { authFetch } from "../utils/authFetch";
-import { ENV } from "../utils/constants";
+import { authFetch } from "../../utils/authFetch";
+import { ENV } from "../../utils/constants";
 
 export class Wishlist {
   async check(userId: any, gameId: any) {

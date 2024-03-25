@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { Game } from "@/api/game";
+import { Game } from "@/app/api/game";
 import { useCart } from "@/hooks/useCart";
 import CartLayout from "../../layouts/CartLayout/CartLayout";
 import { Cart } from "../../components/Cart";
