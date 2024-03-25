@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Icon } from "semantic-ui-react";
 import classNames from "classnames";
-import styles from "./WishlistIcon.module.scss";
+import styles from "./WishListIcon.module.scss";
 import { Wishlist } from "../../../api/wishList";
 import { useAuth } from "../../../hooks/useAuth";
 
