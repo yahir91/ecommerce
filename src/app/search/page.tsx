@@ -1,59 +1,25 @@
-"use client";
+import { ENV } from "../../utils/constants";
+import SearchGame from "./Search";
 
-import { useEffect, useState } from "react";
-import { Container } from "semantic-ui-react";
-import { size } from "lodash";
-import { BasicLayout } from "../../layouts/BasicLayout/BasicLayout";
-import { Separator } from "../../components/Shared/Separator/Separator";
-import GridGames from "../../components/Shared/GridGames/GridGames";
-import Pagination from "../../components/Shared/Pagination/Pagination";
-import NoResult from "../../components/Shared/NoResult/NoResult";
-import { useSearchParams } from "next/navigation";
-
-const SearchGame = () => {
-  const [data, setData] = useState<any>();
-  const hasResult = size(data?.games) > 0;
-  const searchParams = useSearchParams();
-  const page = searchParams.get("page") ?? "1";
-  const search = searchParams.get("s") ?? "";
-
-  useEffect(() => {
-    document.getElementById("search-games")?.focus();
-  }, []);
-
-  useEffect(() => {
-    const asyncFunction = (async () => {
-      const response = await fetch(`../api/search/?s=${search}&page=${page}`);
-      const { data } = await response.json();
-      setData(data);
-    })();
-  }, [page, search]);
-
+const page = async ({
+  searchParams,
+}: {
+  searchParams: {
+    s: string | string[] | undefined;
+    page: string | string[] | undefined;
+  };
+}) => {
+  const page = searchParams.page ?? "1";
+  const search = searchParams.s ?? "";
+  const response = await fetch(
+    `${ENV.URL}/api/search/?s=${search}&page=${page}`
+  );
+  const { data } = await response.json();
   return (
-    <>
-      <BasicLayout relative isOpenSearch>
-        <Container>
-          <Separator height={50} />
-
-          <h2 style={{ paddingLeft: 40 }}>Buscando: {data?.searchText}</h2>
-          {hasResult ? (
-            <>
-              <GridGames games={data.games} />
-              <Separator height={30} />
-              <Pagination
-                currentPage={data?.pagination.page}
-                totalPages={data?.pagination.pageCount}
-              />
-            </>
-          ) : (
-            <NoResult text="No se han encontrado resultados" />
-          )}
-
-          <Separator height={100} />
-        </Container>
-      </BasicLayout>
-    </>
+    <div>
+      <SearchGame data={data} />
+    </div>
   );
 };
 
-export default SearchGame;
+export default page;
