@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { map } from "lodash";
-import { Address as AddressCtrl } from "../../../../api/address";
+import { Address as AddressCtrl } from "../../../../app/api/address";
 import styles from "./ListAddresses.module.scss";
 import Address from "./Address/Address";
 import { useAuth } from "../../../../hooks/useAuth";
