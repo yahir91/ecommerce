@@ -1,7 +1,7 @@
 import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
 import styles from "./ChangeNameForm.module.scss";
-import { User } from "../../../../app/api/user";
+import { User } from "../../../../api/user";
 import { useAuth } from "../../../../hooks/useAuth";
 import { initialValues, validationSchema } from "./ChangeNameForm.form";
 

@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { Cart } from "../app/api/cart";
+import { Cart } from "../api/cart";
 
 const cartCtrl = new Cart();
 

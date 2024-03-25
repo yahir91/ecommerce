@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { size } from "lodash";
-import { Wishlist as WishlistCtrl } from "../../../app/api/wishList";
+import { Wishlist as WishlistCtrl } from "../../../api/wishList";
 import { useAuth } from "../../../hooks/useAuth";
 import NoResult from "../../Shared/NoResult/NoResult";
 import GridGames from "./GridGames/GridGames";

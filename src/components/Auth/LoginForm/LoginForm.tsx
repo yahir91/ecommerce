@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 
 import { initialValues, validationSchema } from "./LoginForm.form";
-import { Auth } from "../../../app/api/auth";
+import { Auth } from "../../../api/auth";
 import { useAuth } from "../../../hooks/useAuth";
 
 const authCtrl = new Auth();

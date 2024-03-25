@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { map } from "lodash";
 import classNames from "classnames";
 import styles from "./Menu.module.scss";
-import { Platform } from "../../../app/api/platform";
+import { Platform } from "../../../api/platform";
 
 const platformCtrl = new Platform();
 

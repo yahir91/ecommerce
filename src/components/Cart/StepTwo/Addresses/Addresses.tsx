@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { add, map } from "lodash";
 import classNames from "classnames";
-import { Address } from "@/app/api/address";
+import { Address } from "@/api/address";
 import { useAuth } from "@/hooks/useAuth";
 import styles from "./Addresses.module.scss";
 

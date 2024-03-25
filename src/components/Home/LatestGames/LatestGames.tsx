@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Game } from "../../../app/api/game";
+import { Game } from "../../../api/game";
 import GridGames from "../../Shared/GridGames/GridGames";
 
 const gameCtrl = new Game();
