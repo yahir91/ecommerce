@@ -14,7 +14,7 @@ export async function authFetch(url: string, params: any) {
   } else {
     if (tokenCtrl.hasExpired(token)) {
       logout();
-    } else if(params) {
+    } else {
       const paramsTemp = {
         ...params,
         headers: {
@@ -24,7 +24,8 @@ export async function authFetch(url: string, params: any) {
       };
 
       try {
-        return await fetch(url, paramsTemp ?? null);
+
+        return await fetch(url, paramsTemp);
       } catch (error) {
         return error;
       }
