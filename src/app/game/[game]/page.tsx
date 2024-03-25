@@ -1,48 +1,23 @@
-"use client";
+import type { Metadata } from "next";
+import { ENV } from "../../../utils/constants";
+import GamePage from "./GamePage";
 
-import { useEffect, useState } from "react";
-import { Separator } from "../../../components/Shared/Separator/Separator";
-import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
-import { Game } from "../../../components/Game";
-import Seo from "../../../components/Shared/Seo/Seo";
+type Props = {
+  params: { game: string };
+};
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const response = await fetch(`${ENV.URL}/api/game/${params.game}`);
+  const { data: parsedResponse } = await response.json();
+  return {
+    title: parsedResponse?.game?.attributes.title,
+    description: parsedResponse?.game?.attributes.summary,
+  };
+}
 
-const GamePage = ({ params }: { params: { game: string } }) => {
-  const [data, setData] = useState<any>({});
-
-  useEffect(() => {
-    const asyncFunction = (async () => {
-      const response = await fetch(`../../api/game/${params.game}`);
-      const { data: parsedResponse } = await response.json();
-      setData(parsedResponse);
-    })();
-  }, [params.game]);
-
-  const wallpaper = data?.game?.attributes.wallpaper;
-  return (
-    <>
-      <BasicLayout>
-        {data.game && (
-          <>
-            <Game.HeaderWallpaper image={wallpaper?.data.attributes.url} />
-            <Game.Panel gameId={data.game.id} game={data.game.attributes} />
-
-            <Separator height={50} />
-
-            <Game.Info game={data?.game?.attributes} />
-
-            <Separator height={30} />
-
-            <Game.Media
-              video={data?.game?.attributes.video}
-              screenshots={data?.game?.attributes.screenshots.data}
-            />
-
-            <Separator height={50} />
-          </>
-        )}
-      </BasicLayout>
-    </>
-  );
+const page = async ({ params }: { params: { game: string } }) => {
+  const response = await fetch(`${ENV.URL}/api/game/${params.game}`);
+  const { data } = await response.json();
+  return <GamePage data={data} />;
 };
 
-export default GamePage;
+export default page;

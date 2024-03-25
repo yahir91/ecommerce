@@ -17,5 +17,6 @@ export const ENV = {
     },
     TOKEN: "token",
     CART: "cart",
-    STRIPE_TOKEN: process.env.NEXT_PUBLIC_STRIPE_KEY ?? ""
+    STRIPE_TOKEN: process.env.NEXT_PUBLIC_STRIPE_KEY ?? "",
+    URL: process.env.NEXT_URL
   };

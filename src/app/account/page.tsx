@@ -1,18 +1,17 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Tab } from "semantic-ui-react";
-import { useRouter } from "next/navigation";
-import styles from "./account.module.scss";
-import { BasicLayout } from "../../layouts/BasicLayout/BasicLayout";
-import { useAuth } from "../../hooks/useAuth";
-import Info from "../../components/Account/Info/Info";
-import { Separator } from "../../components/Shared/Separator/Separator";
-import { Settings } from "../../components/Account/Settings";
 import { Address } from "../../components/Account/Address";
-import Wishlist from "../../components/Account/Wishlist/Wishlist";
+import Info from "../../components/Account/Info/Info";
 import Orders from "../../components/Account/Orders/Orders";
-import Seo from "../../components/Shared/Seo/Seo";
+import { Settings } from "../../components/Account/Settings";
+import Wishlist from "../../components/Account/Wishlist/Wishlist";
+import { Separator } from "../../components/Shared/Separator/Separator";
+import { useAuth } from "../../hooks/useAuth";
+import { BasicLayout } from "../../layouts/BasicLayout/BasicLayout";
+import styles from "./account.module.scss";
 
 const Account = () => {
   const { user, logout } = useAuth();
