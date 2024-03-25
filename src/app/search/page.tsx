@@ -1,23 +1,28 @@
-import { ENV } from "../../utils/constants";
+import { Game } from "../../api/game";
 import SearchGame from "./Search";
+const gameCtrl = new Game();
 
 const page = async ({
   searchParams,
 }: {
   searchParams: {
-    s: string | string[] | undefined;
-    page: string | string[] | undefined;
+    s: string | undefined;
+    page: string | undefined;
   };
 }) => {
   const page = searchParams.page ?? "1";
   const search = searchParams.s ?? "";
-  const response = await fetch(
-    `${ENV.URL}/api/search/?s=${search}&page=${page}`
-  );
-  const { data } = await response.json();
+  const response = await gameCtrl.searchGames(search, page);
+
   return (
     <div>
-      <SearchGame data={data} />
+      <SearchGame
+        data={{
+          games: response.data,
+          pagination: response.meta.pagination,
+          searchText: search,
+        }}
+      />
     </div>
   );
 };

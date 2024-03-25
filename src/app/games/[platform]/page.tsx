@@ -1,37 +1,46 @@
-import { ENV } from "../../../utils/constants";
+import { Metadata } from "next";
+import { Game } from "../../../api/game";
+import { Platform } from "../../../api/platform";
 import PlatformPage from "./PlaftormPage";
 
-// type Props = {
-//   params: { platform: string };
-// };
+type Props = {
+  params: { platform: string };
+};
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const response = await fetch(
-//     `${ENV.URL}/api/games/${params.platform}`
-//   );
-//   const { data } = await response.json();
-//   return {
-//     title: data?.platform?.attributes.title,
-//   };
-// }
+const platformCtrl = new Platform();
+const gameCtrl = new Game();
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const platform = await platformCtrl.getBySlug(params.platform);
+
+  return {
+    title: platform?.attributes.title,
+  };
+}
 
 const page = async ({
   params,
   searchParams,
 }: {
   params: { platform: string };
-  searchParams: { [page: string]: string | string[] | undefined };
+  searchParams: { [page: string]: string };
 }) => {
   const page = searchParams.page || "1";
 
-  const response = await fetch(
-    `${ENV.URL}/api/games/${params.platform}?page=${page}`
-  );
-  const { data } = await response.json();
+  const responsePlatform = await platformCtrl.getBySlug(params.platform);
+
+  const data = await gameCtrl.getGamesByPlatformSlug(params.platform, page!);
 
   return (
     <>
-      <PlatformPage data={data} params={params} />
+      <PlatformPage
+        data={{
+          platform: responsePlatform,
+          games: data.data,
+          pagination: data.meta.pagination,
+        }}
+        params={params}
+      />
     </>
   );
 };

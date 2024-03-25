@@ -6,7 +6,6 @@ import { Game } from "../../../components/Game";
 
 const GamePage = ({ data }: any) => {
   const wallpaper = data?.attributes.wallpaper;
-  console.log(data);
   return (
     <>
       <BasicLayout>
