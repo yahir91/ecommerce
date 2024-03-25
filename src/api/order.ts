@@ -10,7 +10,7 @@ export class Order {
 
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ORDER}?${urlParams}`;
 
-      const response: any = await authFetch(url);
+      const response: any = await authFetch(url, null);
       const result = await response.json();
 
       if (response.status !== 200) throw result;

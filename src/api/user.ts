@@ -6,7 +6,7 @@ export class User {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS_ME}`;
 
-      const response: any = await authFetch(url);
+      const response: any = await authFetch(url, null);
       const result = await response.json();
 
       if (response.status !== 200) throw result;
