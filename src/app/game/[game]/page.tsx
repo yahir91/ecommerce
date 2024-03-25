@@ -1,4 +1,5 @@
-import { ENV } from "../../../utils/constants";
+import { Game } from "../../../api/game";
+// import { ENV } from "../../../utils/constants";
 import GamePage from "./GamePage";
 
 // type Props = {
@@ -14,9 +15,10 @@ import GamePage from "./GamePage";
 // }
 
 const page = async ({ params }: { params: { game: string } }) => {
-  const response = await fetch(`${ENV.URL}/api/game/${params.game}`);
-  const { data } = await response.json();
-  return <GamePage data={data} />;
+  const gameCtrl = new Game();
+  const response = await gameCtrl.getBySlug(params.game);
+  console.log(response);
+  return <GamePage data={response} />;
 };
 
 export default page;
