@@ -1,20 +1,19 @@
-import type { Metadata } from "next";
 import { ENV } from "../../../utils/constants";
 import PlatformPage from "./PlaftormPage";
 
-type Props = {
-  params: { platform: string };
-};
+// type Props = {
+//   params: { platform: string };
+// };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const response = await fetch(
-    `${ENV.URL}/api/games/${params.platform}`
-  );
-  const { data } = await response.json();
-  return {
-    title: data?.platform?.attributes.title,
-  };
-}
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   const response = await fetch(
+//     `${ENV.URL}/api/games/${params.platform}`
+//   );
+//   const { data } = await response.json();
+//   return {
+//     title: data?.platform?.attributes.title,
+//   };
+// }
 
 const page = async ({
   params,
