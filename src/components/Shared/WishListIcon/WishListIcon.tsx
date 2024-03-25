@@ -29,6 +29,7 @@ const WishlistIcon = (props: any) => {
   };
 
   const deleteWishlist = async () => {
+    console.log(process.cwd());
     try {
       await wishlistCtrl.delete(hasWishlist.id);
       setHasWishlist(false);

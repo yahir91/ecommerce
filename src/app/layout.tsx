@@ -1,10 +1,4 @@
-"use client";
-
-import "@/scss/global.scss";
-import "semantic-ui-css/semantic.min.css";
-import { TurnOffDefaultPropsWarning } from "../components/Error/Error";
-import { AuthProvider } from "../contexts/AuthContext";
-import { CartProvider } from "../contexts/CartContext";
+import Providers from "./providers";
 
 export default function RootLayout({
   children,
@@ -14,12 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthProvider>
-          <CartProvider>
-            <TurnOffDefaultPropsWarning />
-            {children}
-          </CartProvider>
-        </AuthProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
