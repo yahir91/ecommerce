@@ -20,17 +20,17 @@ const gameCtrl = new Game();
 // }
 
 const page = async ({
-  params,
-  searchParams,
+  // params,
+  // searchParams,
 }: {
   params: { platform: string };
   searchParams: { [page: string]: string };
 }) => {
-  const page = searchParams.page || "1";
+  // const page = searchParams.page || "1";
 
-  const responsePlatform = await platformCtrl.getBySlug(params.platform);
+  // const responsePlatform = await platformCtrl.getBySlug(params.platform);
 
-  const data = await gameCtrl.getGamesByPlatformSlug(params.platform, page!);
+  // const data = await gameCtrl.getGamesByPlatformSlug(params.platform, page!);
 
   return (
     <>
