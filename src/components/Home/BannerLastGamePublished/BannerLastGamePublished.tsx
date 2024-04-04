@@ -39,7 +39,7 @@ const BannerLastGamePublished = () => {
         alt="wallpaper"
       />
 
-      <Link className={styles.infoContainer} href={game.attributes.slug}>
+      <Link className={styles.infoContainer} href={`games/${game.attributes.slug}`}>
         <span className={styles.date}>
           {/* {DateTime.fromISO(releaseDate).minus({ days: 1 }).toRelative()} */}
         </span>
