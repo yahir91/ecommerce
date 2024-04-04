@@ -11,13 +11,13 @@ type Props = {
 const platformCtrl = new Platform();
 const gameCtrl = new Game();
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const platform = await platformCtrl.getBySlug(params.platform);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const platform = await platformCtrl.getBySlug(params.platform);
 
-//   return {
-//     title: platform?.attributes.title,
-//   };
-// }
+  return {
+    title: platform?.attributes.title,
+  };
+}
 
 const page = async ({
   // params,
