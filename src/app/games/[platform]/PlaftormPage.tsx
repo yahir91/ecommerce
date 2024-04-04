@@ -9,7 +9,6 @@ import { Separator } from "../../../components/Shared/Separator/Separator";
 import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
 
 const PlatformPage = ({ data, params }: any) => {
-
   const hasProducts = size(data.games) > 0;
 
   return (

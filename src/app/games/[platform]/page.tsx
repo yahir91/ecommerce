@@ -1,3 +1,5 @@
+"use server";
+
 import { Metadata } from "next";
 import { Game } from "../../api/game";
 import { Platform } from "../../api/platform";
