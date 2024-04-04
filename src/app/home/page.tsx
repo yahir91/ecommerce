@@ -6,6 +6,7 @@ import { Separator } from "../../components/Shared/Separator/Separator";
 import { Container } from "semantic-ui-react";
 import BarTrust from "../../components/Shared/BarTrust/BarTrust";
 import BannerAd from "../../components/Shared/BannerAd/BannerAd";
+import { ENV } from "../../utils/constants";
 
 const platformsId = {
   playstation: 1,
@@ -15,6 +16,7 @@ const platformsId = {
 };
 
 export default function HomePage() {
+  console.log(ENV.API_URL);
   return (
     <main>
       <BasicLayout isContainer>
