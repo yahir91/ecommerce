@@ -1,29 +1,55 @@
-"use server";
-import { Metadata } from "next";
-import { Game } from "../../api/game";
-import GamePage from "./GamePage";
-import { Suspense } from "react";
+"use client";
 
-// type Props = {
-//   params: { game: string };
-// };
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const gameCtrl = new Game();
-//   const response = await gameCtrl.getBySlug(params.game);
-//   return {
-//     title: response.attributes.title,
-//     description: response.game?.attributes.summary,
-//   };
-// }
+import { Separator } from "../../../components/Shared/Separator/Separator";
+import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
+import { Game } from "../../../components/Game";
+import { Game as GameCtrl } from "../../api/game";
+import { useEffect, useState } from "react";
 
-const page = async ({ params }: { params: { game: string } }) => {
-  const gameCtrl = new Game();
-  const response = await gameCtrl.getBySlug(params.game);
+const gameCtrl = new GameCtrl();
+
+const GamePage = ({ params }: { params: { game: string } }) => {
+  const [data, setData] = useState<any>();
+
+  console.log(params);
+
+  useEffect(() => {
+    const asyncFunction = (async () => {
+      console.log("hi");
+      const response = await gameCtrl.getBySlug(params.game);
+      console.log(response);
+      setData(response);
+    })();
+  }, [params.game]);
+
+  const wallpaper = data?.attributes?.wallpaper;
+  console.log(data);
+
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <GamePage data={response} />
-    </Suspense>
+    <>
+      <BasicLayout>
+        {data && (
+          <>
+            <Game.HeaderWallpaper image={wallpaper?.data.attributes?.url} />
+            <Game.Panel gameId={data.id} game={data.attributes} />
+
+            <Separator height={50} />
+
+            <Game.Info game={data.attributes} />
+
+            <Separator height={30} />
+
+            <Game.Media
+              video={data.attributes?.video}
+              screenshots={data.attributes?.screenshots.data}
+            />
+
+            <Separator height={50} />
+          </>
+        )}
+      </BasicLayout>
+    </>
   );
 };
 
-export default page;
+export default GamePage;
