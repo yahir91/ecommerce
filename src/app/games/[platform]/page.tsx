@@ -3,7 +3,6 @@
 import { Metadata } from "next";
 import { Game } from "../../api/game";
 import { Platform } from "../../api/platform";
-import PlatformPage from "./PlaftormPage";
 
 type Props = {
   params: { platform: string };
@@ -35,14 +34,15 @@ const page = async ({
 
   return (
     <>
-      <PlatformPage
+      {/* <PlatformPage
         data={{
           platform: responsePlatform,
           games: data.data,
           pagination: data.meta.pagination,
         }}
         params={params}
-      />
+      /> */}
+      <div>hola</div>
     </>
   );
 };
