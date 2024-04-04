@@ -1,50 +1,45 @@
-"use server";
+"use client";
 
-import { Metadata } from "next";
-import { Game } from "../../api/game";
-import { Platform } from "../../api/platform";
+import { size } from "lodash";
+import { Container } from "semantic-ui-react";
+import GridGames from "../../../components/Shared/GridGames/GridGames";
+import NoResult from "../../../components/Shared/NoResult/NoResult";
+import Pagination from "../../../components/Shared/Pagination/Pagination";
+import { Separator } from "../../../components/Shared/Separator/Separator";
+import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
 
-type Props = {
-  params: { platform: string };
-};
-
-const platformCtrl = new Platform();
-const gameCtrl = new Game();
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const platform = await platformCtrl.getBySlug(params.platform);
-
-  return {
-    title: platform?.attributes.title,
-  };
-}
-
-const page = async ({
-  params,
-  searchParams,
-}: {
-  params: { platform: string };
-  searchParams: { [page: string]: string };
-}) => {
-  const page = searchParams.page || "1";
-
-  const responsePlatform = await platformCtrl.getBySlug(params.platform);
-
-  const data = await gameCtrl.getGamesByPlatformSlug(params.platform, page!);
+const PlatformPage = ({ data, params }: any) => {
+  // const hasProducts = size(data.games) > 0;
 
   return (
-    <>
-      {/* <PlatformPage
-        data={{
-          platform: responsePlatform,
-          games: data.data,
-          pagination: data.meta.pagination,
-        }}
-        params={params}
-      /> */}
-      <div>hola</div>
-    </>
+    <BasicLayout relative>
+      <div>Hola</div>
+      {/* <Container>
+        <Separator height={50} />
+
+        <h2 style={{ paddingLeft: 30 }}>{data?.platform?.attributes.title}</h2>
+
+        {hasProducts ? (
+          <>
+            <GridGames games={data.games} />
+            <Separator height={30} />
+            <Pagination
+              currentPage={data?.pagination.page}
+              totalPages={data?.pagination.pageCount}
+            />
+          </>
+        ) : (
+          <NoResult
+            text={`La categoria ${
+              data?.platform?.attributes.title ?? params.platform
+            } aun no tiene productos`}
+          />
+        )}
+
+        <Separator height={100} />
+      </Container> */}
+    </BasicLayout>
   );
 };
 
-export default page;
+export default PlatformPage;
