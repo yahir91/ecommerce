@@ -12,10 +12,10 @@ const AddAddress = ({ onReload }: any) => {
   return (
     <>
       <Button primary className={styles.addBtn} onClick={onOpenClose}>
-        Crear
+        Create
       </Button>
 
-      <BasicModal show={show} onClose={onOpenClose} title="Nueva dirección">
+      <BasicModal show={show} onClose={onOpenClose} title="New Address">
         <AddressForm onClose={onOpenClose} onReload={onReload} />
       </BasicModal>
     </>

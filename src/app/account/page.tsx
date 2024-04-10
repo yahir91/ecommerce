@@ -27,7 +27,7 @@ const Account = () => {
 
   const panes = [
     {
-      menuItem: "Mis pedidos",
+      menuItem: "My Orders",
       render: () => (
         <Tab.Pane attached={false}>
           <Orders />
@@ -36,7 +36,7 @@ const Account = () => {
       ),
     },
     {
-      menuItem: "Lista de deseos",
+      menuItem: "Wish List",
       render: () => (
         <Tab.Pane attached={false}>
           <Wishlist />
@@ -45,7 +45,7 @@ const Account = () => {
       ),
     },
     {
-      menuItem: "Direcciones",
+      menuItem: "Addresses",
       render: () => (
         <Tab.Pane attached={false}>
           <Address.AddAddress onReload={onReload} />
@@ -55,7 +55,7 @@ const Account = () => {
       ),
     },
     {
-      menuItem: { key: 20, icon: "settings", content: "Ajustes" },
+      menuItem: { key: 20, icon: "settings", content: "Settings" },
       render: () => (
         <Tab.Pane attached={false} key={99}>
           <Settings.ChangeNameForm />

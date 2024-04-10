@@ -30,11 +30,11 @@ const Order = (props: any) => {
       <div className={styles.order} onClick={openCloseModal}>
         <div>
           <span>
-            {DateTime.fromISO(createdAt, { locale: "es" }).toFormat(
+            {DateTime.fromISO(createdAt, { locale: "en" }).toFormat(
               "dd/MM/yyyy"
             )}
           </span>
-          <p>{getTotalProducts()} productos</p>
+          <p>{getTotalProducts()} products</p>
         </div>
 
         <p>{order.attributes.totalPayment.toFixed(2)}€</p>
@@ -43,7 +43,7 @@ const Order = (props: any) => {
       <BasicModal
         show={showModal}
         onClose={openCloseModal}
-        title="Información del pedido"
+        title="Order Information"
       >
         {map(products, (product) => (
           <div className={styles.product}>

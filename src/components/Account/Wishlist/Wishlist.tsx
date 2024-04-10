@@ -26,7 +26,7 @@ const Wishlist = () => {
   }, [reload, user.id]);
 
   return size(wishlist) === 0 ? (
-    <NoResult text="No tienes ningun juego en la lista de deseos" />
+    <NoResult text="You don't have any game in your WishList" />
   ) : (
     <GridGames wishlist={wishlist} onReload={onReload} />
   );

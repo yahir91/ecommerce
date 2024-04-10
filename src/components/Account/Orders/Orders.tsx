@@ -22,10 +22,10 @@ const Orders = () => {
     })();
   }, [user.id]);
 
-  if (!orders) return <NoResult text="No tienes ningun producto comprado" />;
+  if (!orders) return <NoResult text="You don't have any purchased item" />;
 
   return (
-    <div>
+    <div style={{ paddingLeft: "10%", paddingRight: "10%" }}>
       {map(orders, (order: any) => (
         <Order key={order.id} order={order} />
       ))}

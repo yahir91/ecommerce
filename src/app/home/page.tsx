@@ -23,7 +23,7 @@ export default function HomePage() {
         <Home.BannerLastGamePublished />
         <Separator height={100} />
         <Container>
-          <Home.LatestGames title="Ultimos lanzamientos" limit={6} />
+          <Home.LatestGames title="Last Releases" limit={6} />
         </Container>
 
         <Separator height={100} />
@@ -44,9 +44,9 @@ export default function HomePage() {
 
         <Container>
           <BannerAd
-            title="Registrate y obten los mejores precios"
-            subtitle="¡Compara con otros juegos y elige el tuyo!"
-            btnTitle="Entrar ahora"
+            title="Register and get the better prices"
+            subtitle="¡Compare with other games and choose yours!"
+            btnTitle="Enter now"
             btnLink="/account"
             image="/images/img01.png"
           />
