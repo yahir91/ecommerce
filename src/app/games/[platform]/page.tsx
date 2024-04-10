@@ -9,6 +9,7 @@ import NoResult from "../../../components/Shared/NoResult/NoResult";
 import Pagination from "../../../components/Shared/Pagination/Pagination";
 import { Separator } from "../../../components/Shared/Separator/Separator";
 import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
+import { getPlatform } from "../../api/helper";
 
 const PlatformPage = ({ params }: { params: { platform: string } }) => {
   const [data, setData] = useState<any>([]);
@@ -17,11 +18,8 @@ const PlatformPage = ({ params }: { params: { platform: string } }) => {
 
   useEffect(() => {
     const asyncFunction = (async () => {
-      const response = await fetch(
-        `../../api/games/${params.platform}?page=${page}`
-      );
-      const { data: parsedData } = await response.json();
-      setData(parsedData);
+      const response = await getPlatform(page, params.platform);
+      setData(response.data);
     })();
   }, [params.platform, page]);
 

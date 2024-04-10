@@ -1,12 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { Game } from "../../../components/Game";
 import { Separator } from "../../../components/Shared/Separator/Separator";
 import { BasicLayout } from "../../../layouts/BasicLayout/BasicLayout";
-import { Game } from "../../../components/Game";
-import { Game as GameCtrl } from "../../api/game";
-import { useEffect, useState } from "react";
+import { getGameBySlug } from "../../api/helper";
 
-const gameCtrl = new GameCtrl();
 
 const GamePage = ({ params }: { params: { game: string } }) => {
   const [data, setData] = useState<any>();
@@ -15,10 +14,9 @@ const GamePage = ({ params }: { params: { game: string } }) => {
 
   useEffect(() => {
     const asyncFunction = (async () => {
-      console.log("hi");
-      const response = await gameCtrl.getBySlug(params.game);
+      const response = await getGameBySlug(params.game);
       console.log(response);
-      setData(response);
+      setData(response.data.game);
     })();
   }, [params.game]);
 
