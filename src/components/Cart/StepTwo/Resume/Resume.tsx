@@ -74,7 +74,7 @@ const Resume = (props: any) => {
         deleteAllItems();
         goToStepEnd();
       } else {
-        console.error("Error al realizar el pedido");
+        console.error("Error when making the payment");
       }
     }
 
@@ -87,7 +87,7 @@ const Resume = (props: any) => {
 
   return (
     <div className={styles.resume}>
-      <h2>Resumen</h2>
+      <h2>Resume</h2>
 
       <div className={styles.block}>
         <div className={styles.products}>
@@ -123,7 +123,7 @@ const Resume = (props: any) => {
           onClick={onPay}
           loading={loading}
         >
-          Pagar
+          Payment
         </Button>
       </div>
     </div>

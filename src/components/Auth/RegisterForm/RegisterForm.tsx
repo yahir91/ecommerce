@@ -30,7 +30,7 @@ const RegisterForm = () => {
         <Form.Input
           name="email"
           type="text"
-          placeholder="Correo electronico"
+          placeholder="Email"
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.errors.email}
@@ -38,7 +38,7 @@ const RegisterForm = () => {
         <Form.Input
           name="username"
           type="text"
-          placeholder="Nombre de usuario"
+          placeholder="Username"
           value={formik.values.username}
           onChange={formik.handleChange}
           error={formik.errors.username}
@@ -49,7 +49,7 @@ const RegisterForm = () => {
         <Form.Input
           name="name"
           type="text"
-          placeholder="Nombre y apellidos"
+          placeholder="Name"
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.errors.name}
@@ -57,7 +57,7 @@ const RegisterForm = () => {
         <Form.Input
           name="password"
           type="password"
-          placeholder="Contraseña"
+          placeholder="Password"
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.errors.password}

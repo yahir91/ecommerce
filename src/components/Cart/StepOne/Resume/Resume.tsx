@@ -54,16 +54,16 @@ const Resume = (props: any) => {
 
   return (
     <div className={styles.resume}>
-      <h2>Resumen</h2>
+      <h2>Resume</h2>
 
       <div className={styles.block}>
         <div className={styles.prices}>
           <div>
-            <span>Precio oficial</span>
+            <span>Official Price</span>
             <span>{totals.original.toFixed(2)}€</span>
           </div>
           <div>
-            <span>Descuento</span>
+            <span>Discount</span>
             <span>{totals.discount.toFixed(2)}€</span>
           </div>
           <div>
@@ -73,10 +73,10 @@ const Resume = (props: any) => {
         </div>
 
         <Button primary fluid onClick={goToStepTwo}>
-          Proceder con el pago
+          Procede with the payment
         </Button>
 
-        <Link href="/">Continuar comprando</Link>
+        <Link href="/">Continue purchasing</Link>
       </div>
     </div>
   );

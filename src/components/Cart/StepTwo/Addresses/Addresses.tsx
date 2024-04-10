@@ -25,7 +25,7 @@ const Addresses = (props: any) => {
 
   return (
     <div className={styles.addresses}>
-      <h2>Dirección</h2>
+      <h2>Address</h2>
 
       {map(addresses, (address:any) => (
         <div

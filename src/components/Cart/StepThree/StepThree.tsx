@@ -6,10 +6,10 @@ const StepThree = () => {
   return (
     <div className={styles.stepThree}>
       <Icon name="check circle outline" />
-      <h2>¡Compra exitosa!</h2>
+      <h2>¡Paymenty Successfull!</h2>
 
       <Button as={Link} href="/account" primary>
-        Ver pedido
+        See Order
       </Button>
     </div>
   );

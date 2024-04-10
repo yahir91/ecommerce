@@ -16,7 +16,7 @@ const Payment = () => {
 
   return (
     <div className={styles.payment}>
-      <h2>Métodos de pago</h2>
+      <h2>Payment Methods</h2>
 
       <div className={styles.block}>
         <CardElement options={cardStyle} />
