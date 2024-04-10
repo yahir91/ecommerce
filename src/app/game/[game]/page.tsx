@@ -10,8 +10,6 @@ import { getGameBySlug } from "../../api/helper";
 const GamePage = ({ params }: { params: { game: string } }) => {
   const [data, setData] = useState<any>();
 
-  console.log(params);
-
   useEffect(() => {
     const asyncFunction = (async () => {
       const response = await getGameBySlug(params.game);
@@ -21,7 +19,6 @@ const GamePage = ({ params }: { params: { game: string } }) => {
   }, [params.game]);
 
   const wallpaper = data?.attributes?.wallpaper;
-  console.log(data);
 
   return (
     <>
