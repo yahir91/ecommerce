@@ -32,6 +32,7 @@ const Basket = (props: any) => {
                 </div>
 
                 <Icon
+                  name="remove"
                   link
                   onClick={() => deleteItem(game.id)}
                 />

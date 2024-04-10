@@ -17,7 +17,7 @@ const GridGames = (props: any) => {
 
         return (
           <div key={item.id} className={styles.game}>
-            <Link href={`/${game.attributes.slug}`}>
+            <Link href={`game/${game.attributes.slug}`}>
               <div>
                 <Image src={cover.attributes.url} alt="cover" />
 

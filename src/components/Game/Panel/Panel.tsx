@@ -62,7 +62,7 @@ const Panel = (props: any) => {
           </div>
 
           <Button primary fluid onClick={addCartWrapper} loading={loading}>
-            Comprar ahora
+            Add to cart
           </Button>
 
           <WishlistIcon gameId={gameId} className={styles.heart} />
